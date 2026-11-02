@@ -43,6 +43,15 @@ export const DEFAULT_PROFILES: CreatorProfile[] = [
         gradient: 'from-[#00f59b] via-[#00c853] to-[#009688]',
         actionType: 'link',
         url: 'https://auctionr.org/4/6aa43a312f95a6b31bfcb5dc6e435ceb'
+      },
+      {
+        id: 'btn-vip',
+        title: 'VIP PRIVATE SHOW',
+        subtitle: 'Access Sofia’s Live Cam Feed 🔥',
+        icon: 'flame',
+        gradient: 'from-[#ff6b00] via-[#ff0055] to-[#7928ca]',
+        actionType: 'link',
+        url: 'https://cpajunkie.trcpa.link/click?camp=2399&pubid=9346'
       }
     ]
   }

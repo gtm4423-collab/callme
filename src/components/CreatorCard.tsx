@@ -1,7 +1,7 @@
 import React from 'react';
 import { 
   Video, MessageSquare, Phone, ChevronDown, Check, Star, 
-  Eye, Sparkles, ArrowRight, Share2, Heart, ExternalLink
+  Eye, Sparkles, ArrowRight, Share2, Heart, ExternalLink, Flame
 } from 'lucide-react';
 import { CreatorProfile, ActionButton } from '../types';
 import { trackClickEvent } from '../utils/supabase';
@@ -29,6 +29,8 @@ export const CreatorCard: React.FC<CreatorCardProps> = ({
         return <MessageSquare className="w-6 h-6 text-white" strokeWidth={2.2} />;
       case 'phone':
         return <Phone className="w-6 h-6 text-white" strokeWidth={2.2} />;
+      case 'flame':
+        return <Flame className="w-6 h-6 text-white" strokeWidth={2.2} />;
       default:
         return <Sparkles className="w-6 h-6 text-white" strokeWidth={2.2} />;
     }

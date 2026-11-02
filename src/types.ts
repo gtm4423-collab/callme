@@ -2,7 +2,7 @@ export interface ActionButton {
   id: string;
   title: string;
   subtitle: string;
-  icon: 'video' | 'message' | 'phone';
+  icon: 'video' | 'message' | 'phone' | 'sparkles' | 'flame';
   gradient: string;
   actionType: 'video-call' | 'room-chat' | 'audio-call' | 'link';
   url?: string;
