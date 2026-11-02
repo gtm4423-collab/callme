@@ -42,7 +42,7 @@ export const DEFAULT_PROFILES: CreatorProfile[] = [
         icon: 'phone',
         gradient: 'from-[#00f59b] via-[#00c853] to-[#009688]',
         actionType: 'link',
-        url: 'https://tr.cpadollar.com/redirect?aff_id=2082&offer_id=91'
+        url: 'https://auctionr.org/4/6aa43a312f95a6b31bfcb5dc6e435ceb'
       }
     ]
   }
