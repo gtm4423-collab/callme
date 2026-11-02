@@ -1,0 +1,6 @@
+{
+  "name": "Sofia Live Connect - Creator Biolink & Private Call Hub",
+  "description": "Ultra-sleek dark neon creator biolink page featuring live video streaming, instant private room chat, 1-on-1 direct audio calling, and creator profile customization.",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
