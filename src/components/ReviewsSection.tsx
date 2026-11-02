@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Star, ThumbsUp, CheckCircle, MessageSquarePlus, X } from 'lucide-react';
 import { ReviewItem } from '../types';
 import { INITIAL_REVIEWS } from '../data/mockData';
+import { fetchSupabaseReviews, addSupabaseReview } from '../utils/supabase';
 
 interface ReviewsSectionProps {
   creatorName: string;
@@ -15,6 +16,15 @@ export const ReviewsSection: React.FC<ReviewsSectionProps> = ({ creatorName }) =
   const [newComment, setNewComment] = useState('');
   const [filterRating, setFilterRating] = useState<number | 'all'>('all');
 
+  // Load reviews from Supabase on mount
+  useEffect(() => {
+    fetchSupabaseReviews().then(data => {
+      if (data && data.length > 0) {
+        setReviews([...data, ...INITIAL_REVIEWS]);
+      }
+    });
+  }, []);
+
   const filteredReviews = filterRating === 'all' 
     ? reviews 
     : reviews.filter(r => r.rating === filterRating);
@@ -23,7 +33,7 @@ export const ReviewsSection: React.FC<ReviewsSectionProps> = ({ creatorName }) =
     setReviews(prev => prev.map(r => r.id === id ? { ...r, likes: r.likes + 1 } : r));
   };
 
-  const handleAddReview = (e: React.FormEvent) => {
+  const handleAddReview = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!newComment.trim()) return;
 
@@ -42,6 +52,17 @@ export const ReviewsSection: React.FC<ReviewsSectionProps> = ({ creatorName }) =
     setNewComment('');
     setNewName('');
     setShowAddModal(false);
+
+    // Save to Supabase
+    await addSupabaseReview({
+      author: newRev.author,
+      avatar: newRev.avatar,
+      rating: newRev.rating,
+      date: newRev.date,
+      comment: newRev.comment,
+      likes: newRev.likes,
+      isVerifiedFan: true
+    });
   };
 
   return (

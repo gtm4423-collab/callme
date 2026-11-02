@@ -4,6 +4,7 @@ import {
   Eye, Sparkles, ArrowRight, Share2, Heart, ExternalLink
 } from 'lucide-react';
 import { CreatorProfile, ActionButton } from '../types';
+import { trackClickEvent } from '../utils/supabase';
 
 interface CreatorCardProps {
   creator: CreatorProfile;
@@ -160,6 +161,7 @@ export const CreatorCard: React.FC<CreatorCardProps> = ({
                 href={btn.url}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackClickEvent(btn.title, btn.url || '')}
                 className={`w-full group relative overflow-hidden rounded-2xl p-3.5 bg-gradient-to-r ${btn.gradient} text-white shadow-xl transition-all duration-200 active:scale-[0.98] hover:brightness-110 flex items-center justify-between cursor-pointer no-underline`}
               >
                 {content}
@@ -170,7 +172,10 @@ export const CreatorCard: React.FC<CreatorCardProps> = ({
           return (
             <button
               key={btn.id}
-              onClick={() => onActionButtonClick(btn)}
+              onClick={() => {
+                trackClickEvent(btn.title, 'internal_action');
+                onActionButtonClick(btn);
+              }}
               className={`w-full group relative overflow-hidden rounded-2xl p-3.5 bg-gradient-to-r ${btn.gradient} text-white shadow-xl transition-all duration-200 active:scale-[0.98] hover:brightness-110 flex items-center justify-between cursor-pointer`}
             >
               {content}
