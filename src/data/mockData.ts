@@ -24,7 +24,7 @@ export const DEFAULT_PROFILES: CreatorProfile[] = [
         icon: 'video',
         gradient: 'from-[#ff1361] via-[#f72585] to-[#b5179e]',
         actionType: 'link',
-        url: 'https://tr.cpadollar.com/redirect?aff_id=2082&offer_id=91'
+        url: 'https://tr.cpadollar.com/redirect?aff_id=2082&offer_id=94'
       },
       {
         id: 'btn-chat',
